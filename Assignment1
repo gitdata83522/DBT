@@ -1,0 +1,107 @@
+kd4_shreyash_83522>use classwork1;
+Database changed
+kd4_shreyash_83522>show tables;
+Empty set (0.00 sec)
+
+kd4_shreyash_83522>create table SALESPEOPLE(Snum int(4), Sname varchar(10), City varchar(10), Comm float(3,2));
+Query OK, 0 rows affected, 2 warnings (0.84 sec)
+
+kd4_shreyash_83522>insert into SALESPERSON values(1000,'Peel','London',.12);
+ERROR 1146 (42S02): Table 'classwork1.SALESPERSON' doesn't exist
+kd4_shreyash_83522>show tables;
++----------------------+
+| Tables_in_classwork1 |
++----------------------+
+| SALESPEOPLE          |
++----------------------+
+1 row in set (0.00 sec)
+
+kd4_shreyash_83522>insert into SALESPEOPLE values(1000,'Peel','London',.12);
+Query OK, 1 row affected (0.14 sec)
+
+kd4_shreyash_83522>insert into SALESPEOPLE values(1002,'Serres','San Jose',.13);
+Query OK, 1 row affected (0.15 sec)
+
+kd4_shreyash_83522>insert into SALESPEOPLE values(1004,'Motika','London',.11);
+Query OK, 1 row affected (0.13 sec)
+
+kd4_shreyash_83522>insert into SALESPEOPLE values(1007,'Rifkin','Barcelona',.15);
+Query OK, 1 row affected (0.24 sec)
+
+kd4_shreyash_83522>insert into SALESPEOPLE values(1003,'Axelrod','New York',.10);
+Query OK, 1 row affected (0.15 sec)
+
+kd4_shreyash_83522>select * SALESPEOPLE;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'SALESPEOPLE' at line 1
+kd4_shreyash_83522>select * from SALESPEOPLE;
++------+---------+-----------+------+
+| Snum | Sname   | City      | Comm |
++------+---------+-----------+------+
+| 1000 | Peel    | London    | 0.12 |
+| 1002 | Serres  | San Jose  | 0.13 |
+| 1004 | Motika  | London    | 0.11 |
+| 1007 | Rifkin  | Barcelona | 0.15 |
+| 1003 | Axelrod | New York  | 0.10 |
++------+---------+-----------+------+
+5 rows in set (0.00 sec)
+
+kd4_shreyash_83522>create table CUSTOMERS(Cnum int(4), Cname varchar(10), City varchar(10), Rating int(4), Snum int(4));
+Query OK, 0 rows affected, 3 warnings (0.67 sec)
+
+kd4_shreyash_83522>show tables;
++----------------------+
+| Tables_in_classwork1 |
++----------------------+
+| CUSTOMERS            |
+| SALESPEOPLE          |
++----------------------+
+2 rows in set (0.00 sec)
+
+kd4_shreyash_83522>insert into CUSTOMERS values(2001,'Hoffman','Londen',100,1001);
+Query OK, 1 row affected (0.15 sec)
+
+kd4_shreyash_83522>insert into CUSTOMERS values(2002,'Giovanni','Rome',200,1003);
+Query OK, 1 row affected (0.15 sec)
+
+kd4_shreyash_83522>insert into CUSTOMERS values(2003,'Liu','San Jose',200,1002);
+Query OK, 1 row affected (0.14 sec)
+
+kd4_shreyash_83522>insert into CUSTOMERS values(2004,'Grass','Berlin',300,1002);
+Query OK, 1 row affected (0.13 sec)
+
+kd4_shreyash_83522>insert into CUSTOMERS values(2006,'Clemens','London',100,1001);
+Query OK, 1 row affected (0.12 sec)
+
+kd4_shreyash_83522>insert into CUSTOMERS values(2008,'Cisneros','San Jose',300,1007);
+Query OK, 1 row affected (0.14 sec)
+
+kd4_shreyash_83522>insert into CUSTOMERS values(2007,'Pereira','Rome',100,1004);
+Query OK, 1 row affected (0.13 sec)
+
+kd4_shreyash_83522>select * from CUSTOMERS;
++------+----------+----------+--------+------+
+| Cnum | Cname    | City     | Rating | Snum |
++------+----------+----------+--------+------+
+| 2001 | Hoffman  | Londen   |    100 | 1001 |
+| 2002 | Giovanni | Rome     |    200 | 1003 |
+| 2003 | Liu      | San Jose |    200 | 1002 |
+| 2004 | Grass    | Berlin   |    300 | 1002 |
+| 2006 | Clemens  | London   |    100 | 1001 |
+| 2008 | Cisneros | San Jose |    300 | 1007 |
+| 2007 | Pereira  | Rome     |    100 | 1004 |
++------+----------+----------+--------+------+
+7 rows in set (0.00 sec)
+
+kd4_shreyash_83522>create table ORDERS(Onum int(4), Amt Float(7,2), Odate date, Cnum int(4), Snum int(4));
+Query OK, 0 rows affected, 4 warnings (1.41 sec)
+
+kd4_shreyash_83522>show tables;
++----------------------+
+| Tables_in_classwork1 |
++----------------------+
+| CUSTOMERS            |
+| ORDERS               |
+| SALESPEOPLE          |
++----------------------+
+3 rows in set (0.01 sec)
+
