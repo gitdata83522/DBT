@@ -1,0 +1,6 @@
+1)"CNUM" of the Customer table is the primary key.
+2) "RATING" is the 4th column of the Column of the customers table
+3)Another Word for "ROW" is "TUPLES" and "COLUMN" is "ATTRIBUTES".
+4)Because , the rows inside a table are scattered(Fragmneted)all over the DB seveer HARD DISK.
+
+
