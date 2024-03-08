@@ -1,0 +1,51 @@
+1)kd4_shreyash_83522>select ONUM,AMT,ODATE from ORDERS;
++------+---------+------------+
+| ONUM | AMT     | ODATE      |
++------+---------+------------+
+| 3001 |   18.93 | 1990-10-03 |
+| 3003 |  767.19 | 1990-10-03 |
+| 3002 | 1900.10 | 1990-10-03 |
+| 3005 | 5160.45 | 1990-10-03 |
+| 3006 | 1098.16 | 1990-10-03 |
+| 3009 | 1713.23 | 1990-10-04 |
+| 3007 |   75.75 | 1990-10-04 |
+| 3008 | 4723.00 | 1990-10-05 |
+| 3010 | 1309.95 | 1990-10-06 |
+| 3011 | 9891.88 | 1990-10-06 |
++------+---------+------------+
+10 rows in set (0.00 sec)
+
+
+2)kd4_shreyash_83522>select * from CUSTOMERS where SNUM=1001;
++------+---------+--------+--------+------+
+| Cnum | Cname   | City   | Rating | Snum |
++------+---------+--------+--------+------+
+| 2001 | Hoffman | Londen |    100 | 1001 |
+| 2006 | Clemens | London |    100 | 1001 |
++------+---------+--------+--------+------+
+2 rows in set (0.00 sec)
+
+
+3)kd4_shreyash_83522>select CITY,SNAME,SNUM,COMM from SALESPEOPLE;
++-----------+---------+------+------+
+| CITY      | SNAME   | SNUM | COMM |
++-----------+---------+------+------+
+| London    | Peel    | 1000 | 0.12 |
+| San Jose  | Serres  | 1002 | 0.13 |
+| London    | Motika  | 1004 | 0.11 |
+| Barcelona | Rifkin  | 1007 | 0.15 |
+| New York  | Axelrod | 1003 | 0.10 |
++-----------+---------+------+------+
+5 rows in set (0.32 sec)
+
+4)kd4_shreyash_83522>select RATING,CNAME from CUSTOMERS where CITY='San Jose';
++--------+----------+
+| RATING | CNAME    |
++--------+----------+
+|    200 | Liu      |
+|    300 | Cisneros |
++--------+----------+
+2 rows in set (0.00 sec)
+
+kd4_shreyash_83522>
+
