@@ -1,0 +1,68 @@
+1)kd4_shreyash_83522>select count(Onum) from ORDERS where Odate='1990-10-03';
++-------------+
+| count(Onum) |
++-------------+
+|           5 |
++-------------+
+1 row in set (0.03 sec)
+
+kd4_shreyash_83522>
+
+2)kd4_shreyash_83522>select count(city) from CUSTOMERS Where City!=NULL;
++-------------+
+| count(city) |
++-------------+
+|           0 |
++-------------+
+1 row in set (0.00 sec)
+
+
+3)kd4_shreyash_83522>select Cnum,min(Amt) from ORDERS group by Cnum;
++------+----------+
+| Cnum | min(Amt) |
++------+----------+
+| 2008 |    18.93 |
+| 2001 |   767.19 |
+| 2007 |  1900.10 |
+| 2003 |  5160.45 |
+| 2002 |  1713.23 |
+| 2004 |    75.75 |
+| 2006 |  4723.00 |
++------+----------+
+7 rows in set (0.03 sec)
+
+4)kd4_shreyash_83522>select Cnum,Cname from CUSTOMERS where Cname LIKE 'G%' ORDER BY Cname;
++------+----------+
+| Cnum | Cname    |
++------+----------+
+| 2002 | Giovanni |
+| 2004 | Grass    |
++------+----------+
+2 rows in set (0.00 sec)
+
+
+5)kd4_shreyash_83522>select City,max(Rating) from CUSTOMERS group by City;
++----------+-------------+
+| City     | max(Rating) |
++----------+-------------+
+| London   |         100 |
+| Rome     |         200 |
+| San Jose |         300 |
+| Berlin   |         300 |
++----------+-------------+
+4 rows in set (0.00 sec)
+
+6)kd4_shreyash_83522>select Odate,count(Distinct Snum) from ORDERS where Odate BETWEEN '1990-10-03' and '1990-10-06' group by Odate;
++------------+----------------------+
+| Odate      | count(Distinct Snum) |
++------------+----------------------+
+| 1990-10-03 |                    4 |
+| 1990-10-04 |                    2 |
+| 1990-10-05 |                    1 |
+| 1990-10-06 |                    2 |
++------------+----------------------+
+4 rows in set (0.00 sec)
+
+kd4_shreyash_83522>
+
+
