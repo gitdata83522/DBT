@@ -1,0 +1,61 @@
+1)kd4_shreyash_83522>Select Cname from CUSTOMERS where Rating>=ANY (select Rating from CUSTOMERS where Snum= (select Snum from SALESPEOPLE where
+ Sname='Serres'));
++----------+
+| Cname    |
++----------+
+| Giovanni |
+| Liu      |
+| Grass    |
+| Cisneros |
++----------+
+4 rows in set (0.00 sec)
+
+select Sname  from SALESPEOPLE where Sname !=ALL(select Sname from SALESPEOPLE,CUSTOMER where SALESPEOPLE.city=CUSTOMERS.city);
++---------+
+| Sname   |
++---------+
+| Rifkin  |
+| Axelrod |
++---------+
+2 rows in set (0.03 sec)
+
+3)kd4_shreyash_83522>select Onum from ORDERS where Amt >any(select Amt  from ORDERS where Cnum=any  (select Cnum from CUSTOMERS where City='Lond
+on'));
++------+
+| Onum |
++------+
+| 3002 |
+| 3005 |
+| 3006 |
+| 3009 |
+| 3008 |
+| 3010 |
+| 3011 |
++------+
+7 rows in set (0.00 sec)
+
+kd4_shreyash_83522>
+
+
+4)
+kd4_shreyash_83522>select Onum from ORDERS where Amt>any(select min(Amt) from ORDERS  where Cnum in  (select Cnum from CUSTOMERS where city='London'));
++------+
+| Onum |
++------+
+| 3002 |
+| 3005 |
+| 3006 |
+| 3009 |
+| 3008 |
+| 3010 |
+| 3011 |
++------+
+7 rows in set (0.00 sec)
+
+kd4_shreyash_83522>
+
+
+
+
+
+
