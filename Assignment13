@@ -1,0 +1,45 @@
+1)kd4_shreyash_83522>select Cname,City,concat(Rating,"(High Rating)") as Rating from CUSTOMERS  where Rating>=200 union (select Cname,City,Concat(Rating,"(Low Rating)")from CUSTOMERS where Rating <200) order by Cname;
++----------+----------+------------------+
+| Cname    | City     | Rating           |
++----------+----------+------------------+
+| Cisneros | San Jose | 300(High Rating) |
+| Clemens  | London   | 100(Low Rating)  |
+| Giovanni | Rome     | 200(High Rating) |
+| Grass    | Berlin   | 300(High Rating) |
+| Hoffman  | London   | 100(Low Rating)  |
+| Liu      | San Jose | 200(High Rating) |
+| Pereira  | Rome     | 100(Low Rating)  |
++----------+----------+------------------+
+7 rows in set (0.38 sec)
+
+kd4_shreyash_83522>
+2)kd4_shreyash_83522>select concat(s1.Sname,"(SALESPERSON)") 'Name',s1.Snum 'No.' from SALESPEOPLE s1,(Select Snum from ORDERS group by Snum having count(Snum)>1)as abcd where abcd.Snum=s1.Snum union (select concat(c1.Cname,"(CUSTOMER)"),c1.Cnum from CUSTOMERS c1,(select Cnum from ORDERS group by Cnum having count(Cnum)>1)as xyz where xyz.cnum=c1.cnum) order by Name asc;
++---------------------+------+
+| Name                | No.  |
++---------------------+------+
+| Cisneros(CUSTOMER)  | 2008 |
+| Clemens(CUSTOMER)   | 2006 |
+| Grass(CUSTOMER)     | 2004 |
+| Rifkin(SALESPERSON) | 1007 |
+| Serres(SALESPERSON) | 1002 |
++---------------------+------+
+5 rows in set (0.08 sec)
+
+kd4_shreyash_83522>
+
+3)
+kd4_shreyash_83522>select distinct Snum "No." from SALESPEOPLE where City+'San jose' union (select distinct Cnum from CUSTOMERS where City='San jose' union all select distinct Onum from ORDERS where Odate='1990-10-03');
++------+
+| No.  |
++------+
+| 2003 |
+| 2008 |
+| 3001 |
+| 3003 |
+| 3002 |
+| 3005 |
+| 3006 |
++------+
+7 rows in set, 10 warnings (0.00 sec)
+
+
