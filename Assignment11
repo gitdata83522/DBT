@@ -1,0 +1,18 @@
+1)kd4_shreyash_83522>select Onum,Cnum from ORDERS  where Cnum =any(select Cnum from CUSTOMERS where Cname='Cisneros') ;
++------+------+
+| Onum | Cnum |
++------+------+
+| 3001 | 2008 |
+| 3006 | 2008 |
++------+------+
+2 rows in set (0.00 sec)
+
+2)kd4_shreyash_83522> select Cname,Rating from CUSTOMERS where Cnum in (select Cnum from  ORDERS where Amt> (select avg(Amt) from ORDERS));
++---------+--------+
+| Cname   | Rating |
++---------+--------+
+| Liu     |    200 |
+| Clemens |    100 |
++---------+--------+
+2 rows in set (0.34 sec)
+
