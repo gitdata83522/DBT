@@ -1,0 +1,26 @@
+1)kd4_shreyash_83522>
+kd4_shreyash_83522>select A.Sname,B.Sname from SALESPEOPLE A,SALESPEOPLE B where A.city=B.City and A.Sname!=B.Sname and(A.Sname,B.Sname)!=(B.Sname,A.Sname);
++--------+--------+
+| Sname  | Sname  |
++--------+--------+
+| Motika | Peel   |
+| Blanco | Serres |
+| Blanco | Serres |
+| Peel   | Motika |
+| Serres | Blanco |
+| Serres | Blanco |
++--------+--------+
+6 rows in set (0.00 sec)
+
+2)
+kd4_shreyash_83522>select Cname,City from CUSTOMERS where Rating=100;
++---------+--------+
+| Cname   | City   |
++---------+--------+
+| Hoffman | London |
++---------+--------+
+1 row in set (0.00 sec)
+
+kd4_shreyash_83522>
+
+
