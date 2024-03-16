@@ -1,0 +1,124 @@
+1)sudo apt-get install gnupg curl
+
+
+2)curl -fsSL https://www.mongodb.org/static/pgp/server-7.0.asc | \
+   sudo gpg -o /usr/share/keyrings/mongodb-server-7.0.gpg \
+   --dearmor
+   
+  3) echo "deb [ arch=amd64,arm64 signed-by=/usr/share/keyrings/mongodb-server-7.0.gpg ] https://repo.mongodb.org/apt/ubuntu jammy/mongodb-org/7.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-7.0.list
+   
+ 4)  sudo apt-get update
+
+   sudo apt-get install -y mongodb-org
+   sudo systemctl start mongod
+5) sudo systemctl daemon-reload
+  sudo systemctl status mongod
+  sudo systemctl enable mongod
+  sudo systemctl stop mongod
+  sudo systemctl restart mongod
+  
+6) test> show dbs
+admin   40.00 KiB
+config  60.00 KiB
+local   72.00 KiB
+
+7)test> use CDAC
+switched to db CDAC
+
+8)show collections
+
+9)CDAC> db.createCollection("LIBRARY")
+{ ok: 1 }
+CDAC> 
+
+10)CDAC> db.LIBRARY.insert({title:'MangoDB programming',author: 'Sameer',likes:100})
+DeprecationWarning: Collection.insert() is deprecated. Use insertOne, insertMany, or bulkWrite.
+{
+  acknowledged: true,
+  insertedIds: { '0': ObjectId('65f56f7ba021c915f1db83b0') }
+}
+CDAC> 
+
+
+11)CDAC> db.LIBRARY.find()
+[
+  {
+    _id: ObjectId('65f56f7ba021c915f1db83b0'),
+    title: 'MangoDB programming',
+    author: 'Sameer',
+    likes: 100
+  }
+]
+
+12)CDAC> db.LIBRARY.insert({title:'MySQL programming',authors:['Jack','Jill'],likes:200})
+{
+  acknowledged: true,
+  insertedIds: { '0': ObjectId('65f57155a021c915f1db83b1') }
+}
+CDAC> 
+
+13)CDAC> db.LIBRARY.find()
+[
+  {
+    _id: ObjectId('65f56f7ba021c915f1db83b0'),
+    title: 'MangoDB programming',
+    author: 'Sameer',
+    likes: 100
+  },
+  {
+    _id: ObjectId('65f57155a021c915f1db83b1'),
+    title: 'MySQL programming',
+    authors: [ 'Jack', 'Jill' ],
+    likes: 200
+  }
+]
+
+14)CDAC> db.LIBRARY.findOne()
+{
+  _id: ObjectId('65f56f7ba021c915f1db83b0'),
+  title: 'MangoDB programming',
+  author: 'Sameer',
+  likes: 100
+}
+
+15)CDAC> db.LIBRARY.find().pretty()
+[
+  {
+    _id: ObjectId('65f56f7ba021c915f1db83b0'),
+    title: 'MangoDB programming',
+    author: 'Sameer',
+    likes: 100
+  },
+  {
+    _id: ObjectId('65f57155a021c915f1db83b1'),
+    title: 'MySQL programming',
+    authors: [ 'Jack', 'Jill' ],
+    likes: 200
+  }
+]
+
+16)CDAC> db.LIBRARY.update({author:'Sameer'},{ $set:{author:'Sameer Dehadrai'}})
+DeprecationWarning: Collection.update() is deprecated. Use updateOne, updateMany, or bulkWrite.
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+
+17)CDAC> db.LIBRARY.remove({likes:100})
+DeprecationWarning: Collection.remove() is deprecated. Use deleteOne, deleteMany, findOneAndDelete, or bulkWrite.
+{ acknowledged: true, deletedCount: 1 }
+
+18)CDAC> db.LIBRARY.drop()
+true
+
+19)CDAC> db.CDAC.drop();
+true
+20)CDAC> exit
+
+
+  
+		
+
